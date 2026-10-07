@@ -37,8 +37,51 @@ tested, and transparent about what the evidence actually supports.
   </picture></a>
 </p>
 
-**Fieldnotes** · [Walkthrough & sample output](https://sagararora492.github.io/projects/fieldnotes/) · [Source](https://github.com/sagararora492/ai-research-agent)<br>
-**pipeline-dojo** · [Source](https://github.com/sagararora492/pipeline-dojo)
+**Fieldnotes** · [Walkthrough & sample output](https://sagararora492.github.io/projects/fieldnotes/) · [Source](https://github.com/sagararora492/ai-research-agent)
+
+### Planned
+
+Each of these has a repository with its plan and milestones; cards move up to Projects as they ship.
+
+<p>
+  <a href="https://github.com/sagararora492/tributary"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/card-tributary-dark.svg">
+    <img alt="Tributary (planned): change data capture and real-time stream processing" src="assets/card-tributary-light.svg" width="49%">
+  </picture></a>
+  <a href="https://github.com/sagararora492/strongroom"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/card-strongroom-dark.svg">
+    <img alt="Strongroom (planned): a Data Vault 2.0 warehouse built with dbt" src="assets/card-strongroom-light.svg" width="49%">
+  </picture></a>
+</p>
+
+<p>
+  <a href="https://github.com/sagararora492/assay"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/card-assay-dark.svg">
+    <img alt="Assay (planned): a declarative data quality framework" src="assets/card-assay-light.svg" width="49%">
+  </picture></a>
+  <a href="https://github.com/sagararora492/trellis"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/card-trellis-dark.svg">
+    <img alt="Trellis (planned): a graph-based ETL engine" src="assets/card-trellis-light.svg" width="49%">
+  </picture></a>
+</p>
+
+<p>
+  <a href="https://github.com/sagararora492/pantry"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/card-pantry-dark.svg">
+    <img alt="Pantry (planned): a feature store for offline training and online serving" src="assets/card-pantry-light.svg" width="49%">
+  </picture></a>
+  <a href="https://github.com/sagararora492/slipway"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/card-slipway-dark.svg">
+    <img alt="Slipway (planned): MLOps CI/CD with drift monitoring" src="assets/card-slipway-light.svg" width="49%">
+  </picture></a>
+</p>
+
+<p>
+  <a href="https://github.com/sagararora492/switchboard"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/card-switchboard-dark.svg">
+    <img alt="Switchboard (planned): a microservices and API gateway platform" src="assets/card-switchboard-light.svg" width="49%">
+  </picture></a>
+</p>
 
 ---
 

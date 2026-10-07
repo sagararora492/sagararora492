@@ -13,8 +13,7 @@
   <g transform="translate(520 40)">
     <rect x="0" y="0" width="64" height="80" rx="8" fill="#191f1b" stroke="#354039" stroke-width="2"/>
     <g stroke="#354039" stroke-width="3" stroke-linecap="round"><path d="M14 20H50"/><path d="M14 32H50"/><path d="M14 44H38"/></g>
-    <circle cx="56" cy="70" r="16" fill="#c4f279"/>
-    <path d="M48 70l6 6 10-11" fill="none" stroke="#101412" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="56" cy="70" r="16" fill="#c4f279"/><path d="M48 70l6 6 10-11" fill="none" stroke="#101412" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
     <text x="40" y="66" fill="#c4f279" font-size="15" font-weight="600" letter-spacing="2.2">FEATURED · AGENTIC AI</text>
     <text x="38" y="118" fill="#f1f4ed" font-size="46" font-weight="600" letter-spacing="-1.2">Fieldnotes</text>

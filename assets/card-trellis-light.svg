@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320" role="img" aria-label="Trellis (planned): a graph-based ETL engine">
+  <title>Trellis (planned): a graph-based ETL engine</title>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#e3e9df" stroke-width="1"/></pattern>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset="0" stop-color="#f6f8f3"/><stop offset=".6" stop-color="#f6f8f3" stop-opacity=".93"/><stop offset="1" stop-color="#f6f8f3" stop-opacity=".2"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="638" height="318" rx="16" fill="#f6f8f3"/>
+  <rect x="1" y="1" width="638" height="318" rx="16" fill="url(#grid)"/>
+  <rect x="1" y="1" width="638" height="318" rx="16" fill="url(#fade)" stroke="#c9d3c4" stroke-width="2"/>
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <g transform="translate(520 40)">
+    <path d="M12 44L48 12M12 44L48 76M48 12L84 44M48 76L84 44" fill="none" stroke="#c9d3c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="44" r="6" fill="#4d7a12"/><rect x="32" y="2" width="32" height="22" rx="5" fill="#ffffff" stroke="#4d7a12" stroke-width="2"/><rect x="32" y="66" width="32" height="22" rx="5" fill="#ffffff" stroke="#4d7a12" stroke-width="2"/><circle cx="84" cy="44" r="8" fill="#4d7a12"/>
+  </g>
+    <text x="40" y="66" fill="#4d7a12" font-size="15" font-weight="600" letter-spacing="2.2">PLANNED · ORCHESTRATION</text>
+    <text x="38" y="118" fill="#101412" font-size="46" font-weight="600" letter-spacing="-1.2">Trellis</text>
+    <text x="40" y="164" fill="#4a554d" font-size="20">An ETL engine where pipelines are dependency</text><text x="40" y="192" fill="#4a554d" font-size="20">graphs: parallel runs, retries, resumable</text><text x="40" y="220" fill="#4a554d" font-size="20">state and partition backfills.</text>
+    <rect x="40" y="242" width="109" height="32" rx="16" fill="#ffffff" stroke="#c9d3c4"/><text x="94.5" y="263" text-anchor="middle" fill="#4a554d" font-size="15">DAG engine</text><rect x="159" y="242" width="90" height="32" rx="16" fill="#ffffff" stroke="#c9d3c4"/><text x="204.0" y="263" text-anchor="middle" fill="#4a554d" font-size="15">Backfills</text><rect x="259" y="242" width="77" height="32" rx="16" fill="#ffffff" stroke="#c9d3c4"/><text x="297.5" y="263" text-anchor="middle" fill="#4a554d" font-size="15">SQLite</text>
+    <circle cx="46" cy="294" r="6" fill="#3572A5"/>
+    <text x="60" y="299" fill="#4a554d" font-size="15">Python</text>
+  </g>
+</svg>

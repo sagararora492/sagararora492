@@ -62,6 +62,83 @@ PROJECTS = {
         motif="pipe",
         alt="pipeline-dojo: an interactive, in-browser guide to data engineering",
     ),
+    "tributary": dict(
+        title="Tributary",
+        eyebrow="PLANNED · STREAMING",
+        desc=["Change data capture from Postgres into Kafka,",
+              "then real-time processing: windowed aggregates,",
+              "joins and replayable, reliable sinks."],
+        chips=["Debezium", "Kafka", "Postgres", "Python"],
+        lang=("Python", "#3572A5"),
+        motif="merge",
+        alt="Tributary (planned): change data capture and real-time stream processing",
+    ),
+    "strongroom": dict(
+        title="Strongroom",
+        eyebrow="PLANNED · DATA WAREHOUSE",
+        desc=["A Data Vault 2.0 warehouse in dbt: hubs, links",
+              "and satellites with full history, plus a",
+              "business vault and marts for analytics."],
+        chips=["dbt", "Data Vault 2.0", "DuckDB", "Snowflake"],
+        lang=("SQL", "#e38c00"),
+        motif="vault",
+        alt="Strongroom (planned): a Data Vault 2.0 warehouse built with dbt",
+    ),
+    "assay": dict(
+        title="Assay",
+        eyebrow="PLANNED · DATA QUALITY",
+        desc=["Declarative data quality checks that catch bad",
+              "data before it lands, with readable reports",
+              "and row-level quarantine."],
+        chips=["YAML checks", "DuckDB", "Airflow"],
+        lang=("Python", "#3572A5"),
+        motif="filter",
+        alt="Assay (planned): a declarative data quality framework",
+    ),
+    "trellis": dict(
+        title="Trellis",
+        eyebrow="PLANNED · ORCHESTRATION",
+        desc=["An ETL engine where pipelines are dependency",
+              "graphs: parallel runs, retries, resumable",
+              "state and partition backfills."],
+        chips=["DAG engine", "Backfills", "SQLite"],
+        lang=("Python", "#3572A5"),
+        motif="dag",
+        alt="Trellis (planned): a graph-based ETL engine",
+    ),
+    "pantry": dict(
+        title="Pantry",
+        eyebrow="PLANNED · MLOPS",
+        desc=["A feature store: define a feature once, serve",
+              "it offline for point-in-time training sets",
+              "and online for low-latency inference."],
+        chips=["Point-in-time joins", "Redis", "FastAPI"],
+        lang=("Python", "#3572A5"),
+        motif="shelves",
+        alt="Pantry (planned): a feature store for offline training and online serving",
+    ),
+    "slipway": dict(
+        title="Slipway",
+        eyebrow="PLANNED · MLOPS",
+        desc=["Gated CI/CD for ML models: tracked training,",
+              "a model registry, canary deploys, and drift",
+              "monitoring once models are live."],
+        chips=["MLflow", "GitHub Actions", "Drift (PSI/KS)"],
+        lang=("Python", "#3572A5"),
+        motif="cycle",
+        alt="Slipway (planned): MLOps CI/CD with drift monitoring",
+    ),
+    "switchboard": dict(
+        title="Switchboard",
+        eyebrow="PLANNED · BACKEND",
+        desc=["Microservices behind one API gateway, with",
+              "auth, rate limiting, contract tests and",
+              "end-to-end tracing."],
+        chips=["FastAPI", "Redis", "OpenTelemetry"],
+        lang=("Python", "#3572A5"),
+        motif="fanout",
+        alt="Switchboard (planned): a microservices and API gateway platform",
+    ),
 }
 
 
@@ -137,21 +214,27 @@ def toolkit(t):
 
 
 def motif(kind, t):
-    x0, y0 = 520, 40
-    if kind == "doc":  # document with a check mark
-        return f'''<g transform="translate({x0} {y0})">
-    <rect x="0" y="0" width="64" height="80" rx="8" fill="{t['node']}" stroke="{t['line']}" stroke-width="2"/>
-    <g stroke="{t['line']}" stroke-width="3" stroke-linecap="round"><path d="M14 20H50"/><path d="M14 32H50"/><path d="M14 44H38"/></g>
-    <circle cx="56" cy="70" r="16" fill="{t['accent']}"/>
-    <path d="M48 70l6 6 10-11" fill="none" stroke="{t['bg']}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>'''
-    return f'''<g transform="translate({x0 - 20} {y0 + 8})">
-    <g fill="none" stroke="{t['line']}" stroke-width="2"><path d="M24 16H60V48H96"/></g>
-    <g fill="{t['node']}" stroke="{t['accent']}" stroke-width="2">
-      <rect x="0" y="4" width="36" height="24" rx="5"/><rect x="78" y="36" width="36" height="24" rx="5"/>
-    </g>
-    <circle cx="60" cy="48" r="6" fill="{t['accent']}"/>
-  </g>'''
+    """Small line-and-node graphic in the top-right corner of a project card."""
+    line, node, accent, bg = t["line"], t["node"], t["accent"], t["bg"]
+    box = lambda x, y, w=32, h=22: f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="5" fill="{node}" stroke="{accent}" stroke-width="2"/>'
+    dot = lambda x, y, r=6: f'<circle cx="{x}" cy="{y}" r="{r}" fill="{accent}"/>'
+    path = lambda d: f'<path d="{d}" fill="none" stroke="{line}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+    shapes = {
+        "doc": f'''<rect x="0" y="0" width="64" height="80" rx="8" fill="{node}" stroke="{line}" stroke-width="2"/>
+    <g stroke="{line}" stroke-width="3" stroke-linecap="round"><path d="M14 20H50"/><path d="M14 32H50"/><path d="M14 44H38"/></g>
+    {dot(56, 70, 16)}<path d="M48 70l6 6 10-11" fill="none" stroke="{bg}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>''',
+        "pipe": path("M4 24H40V56H76") + box(-20, 12, 36, 24) + box(58, 44, 36, 24) + dot(40, 56),
+        "merge": path("M0 10C40 10 40 44 70 44") + path("M0 78C40 78 40 44 70 44") + path("M70 44H96") + dot(70, 44) + box(-12, 0, 24, 20) + box(-12, 68, 24, 20),
+        "vault": path("M44 40L6 8M44 40L84 8M44 40L6 76M44 40L84 76") + box(-10, -2) + box(68, -2) + box(-10, 66) + box(68, 66) + dot(44, 40, 11),
+        "filter": path("M4 8H84L54 44V74L34 84V44Z") + dot(74, 72, 14) + f'<path d="M67 72l5 5 9-10" fill="none" stroke="{bg}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
+        "dag": path("M12 44L48 12M12 44L48 76M48 12L84 44M48 76L84 44") + dot(12, 44) + box(32, 2) + box(32, 66) + dot(84, 44, 8),
+        "shelves": "".join(box(x, y, 36, 22) for x, y in [(0, 6), (44, 6), (0, 36), (0, 66), (44, 66)]) + f'<rect x="44" y="36" width="36" height="22" rx="5" fill="{accent}"/>',
+        "cycle": path("M44 8A36 36 0 0 1 80 44") + path("M44 80A36 36 0 0 1 8 44")
+                 + f'<path d="M73 37l7 9 7-9M1 51l7-9 7 9" fill="none" stroke="{accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'
+                 + box(28, 33, 32, 22) + dot(44, 8, 4) + dot(44, 80, 4),
+        "fanout": path("M16 44H40M40 44L68 8M40 44H68M40 44L68 80") + box(-20, 33, 36, 22) + dot(40, 44) + box(64, -3) + box(64, 33) + box(64, 69),
+    }
+    return f'<g transform="translate(520 40)">\n    {shapes[kind]}\n  </g>'
 
 
 def project_card(p, t):
@@ -162,6 +245,8 @@ def project_card(p, t):
         chips.append(f'<rect x="{x}" y="242" width="{chip_w}" height="32" rx="16" fill="{t["chip"]}" stroke="{t["border"]}"/>'
                      f'<text x="{x + chip_w / 2}" y="263" text-anchor="middle" fill="{t["muted"]}" font-size="15">{escape(c)}</text>')
         x += chip_w + 10
+    if x - 10 > w - 40:
+        raise SystemExit(f"Chips on the {p['title']} card are too wide; shorten or remove one.")
     desc = "".join(f'<text x="40" y="{164 + i * 28}" fill="{t["muted"]}" font-size="20">{escape(line)}</text>'
                    for i, line in enumerate(p["desc"]))
     lang, color = p["lang"]
