@@ -43,36 +43,6 @@ jobs:
           path: profile/stats-light.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Top languages (dark)
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: top-langs
-          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&exclude_repo=sagararora492&${{ env.DARK }}
-          path: profile/top-langs-dark.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Top languages (light)
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: top-langs
-          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&exclude_repo=sagararora492&${{ env.LIGHT }}
-          path: profile/top-langs-light.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Pin ai-research-agent (dark)
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=ai-research-agent&description_lines_count=2&${{ env.DARK }}
-          path: profile/pin-ai-research-agent-dark.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Pin ai-research-agent (light)
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=ai-research-agent&description_lines_count=2&${{ env.LIGHT }}
-          path: profile/pin-ai-research-agent-light.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Pin pipeline-dojo (dark)
         uses: stats-organization/github-readme-stats-action@v2
         with:

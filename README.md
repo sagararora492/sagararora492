@@ -17,10 +17,6 @@ tested, and transparent about what the evidence actually supports.
 
 ### Toolkit
 
-<p>
-  <img src="https://skillicons.dev/icons?i=python,postgres,kafka,aws,gcp,azure,terraform,docker,githubactions,ts,rust&perline=11" alt="Python, PostgreSQL, Kafka, AWS, GCP, Azure, Terraform, Docker, GitHub Actions, TypeScript, Rust">
-</p>
-
 **Warehouse & transform** — Snowflake · BigQuery · dbt · Spark · SQL · Python<br>
 **Orchestration & ingestion** — Airflow · Prefect · Kafka · Fivetran<br>
 **Cloud & infrastructure** — AWS · GCP · Azure · Terraform · Docker · GitHub Actions<br>
@@ -48,21 +44,15 @@ brief in which every citation is checked against the stored source text.
 [Walkthrough & sample output](https://sagararora492.github.io/projects/fieldnotes/) ·
 [Source code](https://github.com/sagararora492/ai-research-agent)
 
-### Projects
+### Also building · pipeline-dojo
 
-<p>
-  <a href="https://github.com/sagararora492/ai-research-agent"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="profile/pin-ai-research-agent-dark.svg">
-    <img alt="ai-research-agent repository card" src="profile/pin-ai-research-agent-light.svg" width="49%">
-  </picture></a>
-  <a href="https://github.com/sagararora492/pipeline-dojo"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="profile/pin-pipeline-dojo-dark.svg">
-    <img alt="pipeline-dojo repository card" src="profile/pin-pipeline-dojo-light.svg" width="49%">
-  </picture></a>
-</p>
+<a href="https://github.com/sagararora492/pipeline-dojo"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="profile/pin-pipeline-dojo-dark.svg">
+  <img alt="pipeline-dojo repository card" src="profile/pin-pipeline-dojo-light.svg" width="49%">
+</picture></a>
 
-**pipeline-dojo** (in progress): an interactive, in-browser guide to data engineering.
-Short lessons, then hands-on SQL, Python, data modelling and DSA exercises that are checked automatically.
+An interactive, in-browser guide to data engineering (in progress): short lessons,
+then hands-on SQL, Python, data modelling and DSA exercises that are checked automatically.
 
 ---
 
@@ -71,20 +61,19 @@ Short lessons, then hands-on SQL, Python, data modelling and DSA exercises that 
 <p>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="profile/stats-dark.svg">
-    <img alt="GitHub stats for sagararora492" src="profile/stats-light.svg" height="165">
+    <img alt="GitHub stats for sagararora492" src="profile/stats-light.svg" height="150">
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="profile/top-langs-dark.svg">
-    <img alt="Most used languages" src="profile/top-langs-light.svg" height="165">
+    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=sagararora492&background=101412&border=354039&stroke=354039&ring=c4f279&fire=c4f279&currStreakNum=f1f4ed&sideNums=f1f4ed&currStreakLabel=c4f279&sideLabels=b1bcb3&dates=b1bcb3">
+    <img alt="GitHub contribution streak" src="https://streak-stats.demolab.com/?user=sagararora492&background=f6f8f3&border=c9d3c4&stroke=c9d3c4&ring=4d7a12&fire=4d7a12&currStreakNum=101412&sideNums=101412&currStreakLabel=4d7a12&sideLabels=4a554d&dates=4a554d" height="150">
   </picture>
 </p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=sagararora492&background=101412&border=354039&stroke=354039&ring=c4f279&fire=c4f279&currStreakNum=f1f4ed&sideNums=f1f4ed&currStreakLabel=c4f279&sideLabels=b1bcb3&dates=b1bcb3">
-  <img alt="GitHub contribution streak" src="https://streak-stats.demolab.com/?user=sagararora492&background=f6f8f3&border=c9d3c4&stroke=c9d3c4&ring=4d7a12&fire=4d7a12&currStreakNum=101412&sideNums=101412&currStreakLabel=4d7a12&sideLabels=4a554d&dates=4a554d">
-</picture>
-
-<img alt="Contribution calendar and coding habits" src="profile/metrics.svg" width="100%">
+<details>
+  <summary><b>Contribution calendar and coding habits</b></summary>
+  <br>
+  <img alt="Contribution calendar and coding habits" src="profile/metrics.svg" width="100%">
+</details>
 
 ---
 
