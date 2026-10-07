@@ -1,15 +1,15 @@
 
       <svg
-        width="467"
+        width="495"
         height="195"
-        viewBox="0 0 467 195"
+        viewBox="0 0 495 195"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         aria-labelledby="descId"
       >
-        <title id="titleId">Sagar Arora&#39;s GitHub Stats, Rank: C</title>
-        <desc id="descId">Total Stars Earned: 0, Total Commits  : 9, Total PRs: 5, Total Issues: 2, Contributed to (last year): 0</desc>
+        <title id="titleId">GitHub stats, Rank: C</title>
+        <desc id="descId">Total Stars Earned: 0, Total Commits  : 9, Total PRs: 6, Total Issues: 2, Contributed to (last year): 0</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 245.72948809192204;
+        stroke-dashoffset: 244.92239151908637;
       }
     }
   
@@ -117,7 +117,7 @@
           rx="4.5"
           height="99%"
           stroke="#c9d3c4"
-          width="466"
+          width="494"
           fill="#f6f8f3"
           stroke-opacity="1"
         />
@@ -133,7 +133,7 @@
         y="0"
         class="header"
         data-testid="header"
-      >Sagar Arora&#39;s GitHub Stats</text>
+      >GitHub stats</text>
     </g>
       </g>
     
@@ -144,7 +144,7 @@
         >
           
     <g data-testid="rank-circle"
-          transform="translate(390.5, 47.5)">
+          transform="translate(418.5, 47.5)">
         <circle class="rank-circle-rim" cx="-10" cy="8" r="40" />
         <circle class="rank-circle" cx="-10" cy="8" r="40" />
         <g class="rank-text">
@@ -199,7 +199,7 @@
         x="224.01"
         y="12.5"
         data-testid="prs"
-      >5</text>
+      >6</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
