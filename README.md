@@ -4,8 +4,8 @@
 </picture>
 
 <p align="center">
-  <a href="https://sagararora492.github.io/data-engineer-portfolio/"><b>Portfolio</b></a> ·
-  <a href="https://github.com/sagararora492/data-engineer-portfolio">Projects</a> ·
+  <a href="https://sagararora492.github.io/"><b>Portfolio</b></a> ·
+  <a href="https://github.com/sagararora492?tab=repositories">Projects</a> ·
   <a href="https://www.linkedin.com/in/sagararora492/">LinkedIn</a>
 </p>
 
@@ -26,7 +26,7 @@ tested, and transparent about what the evidence actually supports.
 
 ### Featured · Fieldnotes, an agentic research assistant
 
-<a href="https://sagararora492.github.io/data-engineer-portfolio/projects/fieldnotes/">
+<a href="https://sagararora492.github.io/projects/fieldnotes/">
   <img src="assets/fieldnotes-studio.jpg" alt="Fieldnotes research studio showing a completed research brief with checked citations" width="100%">
 </a>
 
@@ -41,12 +41,12 @@ brief in which every citation is checked against the stored source text.
   timing and token usage, and saved evidence for every run.
 - **Zero runtime dependencies**: pure Python 3.12, runs fully offline on imported documents.
 
-[Walkthrough & sample output](https://sagararora492.github.io/data-engineer-portfolio/projects/fieldnotes/) ·
-[Source code](https://github.com/sagararora492/data-engineer-portfolio/tree/main/apps/ai-agentic-research-assistant)
+[Walkthrough & sample output](https://sagararora492.github.io/projects/fieldnotes/) ·
+[Source code](https://github.com/sagararora492/ai-research-agent)
 
 ---
 
 ### Currently
 
-- Building more data engineering projects into the [portfolio monorepo](https://github.com/sagararora492/data-engineer-portfolio).
+- Building more data engineering projects, each in its own repository and showcased on my [portfolio](https://sagararora492.github.io/).
 - Exploring evaluation and failure handling for LLM-backed data workflows.
