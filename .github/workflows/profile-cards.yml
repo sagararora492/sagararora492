@@ -32,30 +32,15 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=false&${{ env.DARK }}
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&card_width=495&custom_title=GitHub%20stats&${{ env.DARK }}
           path: profile/stats-dark.svg
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Stats (light)
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=false&${{ env.LIGHT }}
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&card_width=495&custom_title=GitHub%20stats&${{ env.LIGHT }}
           path: profile/stats-light.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Pin pipeline-dojo (dark)
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=pipeline-dojo&description_lines_count=2&${{ env.DARK }}
-          path: profile/pin-pipeline-dojo-dark.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Pin pipeline-dojo (light)
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=pipeline-dojo&description_lines_count=2&${{ env.LIGHT }}
-          path: profile/pin-pipeline-dojo-light.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit cards

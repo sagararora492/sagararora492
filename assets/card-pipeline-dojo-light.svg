@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320" role="img" aria-label="pipeline-dojo: an interactive, in-browser guide to data engineering">
+  <title>pipeline-dojo: an interactive, in-browser guide to data engineering</title>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#e3e9df" stroke-width="1"/></pattern>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset="0" stop-color="#f6f8f3"/><stop offset=".6" stop-color="#f6f8f3" stop-opacity=".93"/><stop offset="1" stop-color="#f6f8f3" stop-opacity=".2"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="638" height="318" rx="16" fill="#f6f8f3"/>
+  <rect x="1" y="1" width="638" height="318" rx="16" fill="url(#grid)"/>
+  <rect x="1" y="1" width="638" height="318" rx="16" fill="url(#fade)" stroke="#c9d3c4" stroke-width="2"/>
+  
+  <g transform="translate(500 48)">
+    <g fill="none" stroke="#c9d3c4" stroke-width="2"><path d="M24 16H60V48H96"/></g>
+    <g fill="#ffffff" stroke="#4d7a12" stroke-width="2">
+      <rect x="0" y="4" width="36" height="24" rx="5"/>
+      <rect x="78" y="36" width="36" height="24" rx="5"/>
+    </g>
+    <circle cx="60" cy="48" r="6" fill="#4d7a12"/>
+  </g>
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="40" y="66" fill="#4d7a12" font-size="15" font-weight="600" letter-spacing="2.2">IN PROGRESS · LEARNING</text>
+    <text x="38" y="118" fill="#101412" font-size="46" font-weight="600" letter-spacing="-1.2">pipeline-dojo</text>
+    <text x="40" y="164" fill="#4a554d" font-size="20">An interactive guide to data engineering: short</text><text x="40" y="192" fill="#4a554d" font-size="20">lessons, then SQL, Python and data modelling</text><text x="40" y="220" fill="#4a554d" font-size="20">exercises, checked right in the browser.</text>
+    <rect x="40" y="242" width="56" height="32" rx="16" fill="#ffffff" stroke="#c9d3c4"/><text x="68.0" y="263" text-anchor="middle" fill="#4a554d" font-size="15">SQL</text><rect x="106" y="242" width="83" height="32" rx="16" fill="#ffffff" stroke="#c9d3c4"/><text x="147.5" y="263" text-anchor="middle" fill="#4a554d" font-size="15">Python</text><rect x="199" y="242" width="153" height="32" rx="16" fill="#ffffff" stroke="#c9d3c4"/><text x="275.5" y="263" text-anchor="middle" fill="#4a554d" font-size="15">Data modelling</text><rect x="362" y="242" width="56" height="32" rx="16" fill="#ffffff" stroke="#c9d3c4"/><text x="390.0" y="263" text-anchor="middle" fill="#4a554d" font-size="15">DSA</text>
+    <circle cx="46" cy="294" r="6" fill="#3178c6"/>
+    <text x="60" y="299" fill="#4a554d" font-size="15">TypeScript</text>
+  </g>
+</svg>
