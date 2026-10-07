@@ -17,10 +17,10 @@ tested, and transparent about what the evidence actually supports.
 
 ### Toolkit
 
-**Warehouse & transform** — Snowflake · BigQuery · dbt · Spark · SQL · Python<br>
-**Orchestration & ingestion** — Airflow · Prefect · Kafka · Fivetran<br>
-**Cloud & infrastructure** — AWS · GCP · Azure · Terraform · Docker · GitHub Actions<br>
-**AI** — LLM APIs (OpenAI, Anthropic, Gemini) · structured outputs · agent orchestration · citation validation
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/toolkit-dark.svg">
+  <img alt="Toolkit. Warehouse &amp; transform: Snowflake, BigQuery, dbt, Spark, SQL, Python. Orchestration &amp; ingestion: Airflow, Prefect, Kafka, Fivetran. Cloud &amp; infrastructure: AWS, GCP, Azure, Terraform, Docker, GitHub Actions. AI: LLM APIs: OpenAI · Anthropic · Gemini, Structured outputs, Agent orchestration, Citation validation." src="assets/toolkit-light.svg" width="100%">
+</picture>
 
 ---
 
