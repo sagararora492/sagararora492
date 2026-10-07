@@ -9,20 +9,17 @@
   <rect x="1" y="1" width="638" height="318" rx="16" fill="#101412"/>
   <rect x="1" y="1" width="638" height="318" rx="16" fill="url(#grid)"/>
   <rect x="1" y="1" width="638" height="318" rx="16" fill="url(#fade)" stroke="#354039" stroke-width="2"/>
-  
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
   <g transform="translate(520 40)">
     <rect x="0" y="0" width="64" height="80" rx="8" fill="#191f1b" stroke="#354039" stroke-width="2"/>
-    <g stroke="#354039" stroke-width="3" stroke-linecap="round">
-      <path d="M14 20H50"/><path d="M14 32H50"/><path d="M14 44H38"/>
-    </g>
+    <g stroke="#354039" stroke-width="3" stroke-linecap="round"><path d="M14 20H50"/><path d="M14 32H50"/><path d="M14 44H38"/></g>
     <circle cx="56" cy="70" r="16" fill="#c4f279"/>
     <path d="M48 70l6 6 10-11" fill="none" stroke="#101412" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
-  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
     <text x="40" y="66" fill="#c4f279" font-size="15" font-weight="600" letter-spacing="2.2">FEATURED · AGENTIC AI</text>
     <text x="38" y="118" fill="#f1f4ed" font-size="46" font-weight="600" letter-spacing="-1.2">Fieldnotes</text>
     <text x="40" y="164" fill="#b1bcb3" font-size="20">A research assistant that plans, collects sources</text><text x="40" y="192" fill="#b1bcb3" font-size="20">and writes a brief where every citation is</text><text x="40" y="220" fill="#b1bcb3" font-size="20">checked against the stored source text.</text>
-    <rect x="40" y="242" width="188" height="32" rx="16" fill="#191f1b" stroke="#354039"/><text x="134.0" y="263" text-anchor="middle" fill="#b1bcb3" font-size="15">Multi-model agents</text><rect x="238" y="242" width="162" height="32" rx="16" fill="#191f1b" stroke="#354039"/><text x="319.0" y="263" text-anchor="middle" fill="#b1bcb3" font-size="15">Citation checks</text><rect x="410" y="242" width="180" height="32" rx="16" fill="#191f1b" stroke="#354039"/><text x="500.0" y="263" text-anchor="middle" fill="#b1bcb3" font-size="15">Zero dependencies</text>
+    <rect x="40" y="242" width="164" height="32" rx="16" fill="#191f1b" stroke="#354039"/><text x="122.0" y="263" text-anchor="middle" fill="#b1bcb3" font-size="15">Multi-model agents</text><rect x="214" y="242" width="135" height="32" rx="16" fill="#191f1b" stroke="#354039"/><text x="281.5" y="263" text-anchor="middle" fill="#b1bcb3" font-size="15">Citation checks</text><rect x="359" y="242" width="159" height="32" rx="16" fill="#191f1b" stroke="#354039"/><text x="438.5" y="263" text-anchor="middle" fill="#b1bcb3" font-size="15">Zero dependencies</text>
     <circle cx="46" cy="294" r="6" fill="#3572A5"/>
     <text x="60" y="299" fill="#b1bcb3" font-size="15">Python</text>
   </g>
