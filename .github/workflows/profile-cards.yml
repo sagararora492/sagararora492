@@ -1,0 +1,120 @@
+name: Update profile cards
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/profile-cards.yml]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: true
+
+env:
+  # Colours match assets/banner-{dark,light}.svg
+  DARK: bg_color=101412&title_color=c4f279&icon_color=c4f279&text_color=f1f4ed&border_color=354039
+  LIGHT: bg_color=f6f8f3&title_color=4d7a12&icon_color=4d7a12&text_color=101412&border_color=c9d3c4
+  METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      # github-readme-stats, rendered here so the README never depends on the rate-limited public instance
+      - name: Stats (dark)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=false&${{ env.DARK }}
+          path: profile/stats-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Stats (light)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=false&${{ env.LIGHT }}
+          path: profile/stats-light.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Top languages (dark)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&exclude_repo=sagararora492&${{ env.DARK }}
+          path: profile/top-langs-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Top languages (light)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&exclude_repo=sagararora492&${{ env.LIGHT }}
+          path: profile/top-langs-light.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pin ai-research-agent (dark)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=ai-research-agent&description_lines_count=2&${{ env.DARK }}
+          path: profile/pin-ai-research-agent-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Pin ai-research-agent (light)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=ai-research-agent&description_lines_count=2&${{ env.LIGHT }}
+          path: profile/pin-ai-research-agent-light.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pin pipeline-dojo (dark)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=pipeline-dojo&description_lines_count=2&${{ env.DARK }}
+          path: profile/pin-pipeline-dojo-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Pin pipeline-dojo (light)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=pipeline-dojo&description_lines_count=2&${{ env.LIGHT }}
+          path: profile/pin-pipeline-dojo-light.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/*.svg
+          git commit -m "Update profile cards" || exit 0
+          git push
+
+  # lowlighter/metrics commits its own SVG, so it runs after the cards job has pushed.
+  # It needs a personal access token and is skipped until the METRICS_TOKEN secret exists.
+  metrics:
+    needs: cards
+    if: ${{ needs.cards.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Contribution calendar and habits
+        if: env.METRICS_TOKEN != ''
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: profile/metrics.svg
+          committer_message: "Update profile metrics"
+          base: ""
+          config_timezone: America/Toronto
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          plugin_habits: yes
+          plugin_habits_from: 200
+          plugin_habits_charts: yes
+          plugin_habits_languages_limit: 6
