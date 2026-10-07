@@ -69,6 +69,6 @@ tested, and transparent about what the evidence actually supports.
 - Exploring evaluation and failure handling for LLM-backed data workflows.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:c4f279,100:0d1117&height=3&section=footer">
+  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117%2C50:c4f279%2C100:0d1117&height=3&section=footer">
   <img alt="" src="https://capsule-render.vercel.app/api?type=rect&color=0:ffffff,50:4d7a12,100:ffffff&height=3&section=footer" width="100%">
 </picture>
