@@ -46,10 +46,12 @@ brief in which every citation is checked against the stored source text.
 
 ### Also building · pipeline-dojo
 
-<a href="https://github.com/sagararora492/pipeline-dojo"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="profile/pin-pipeline-dojo-dark.svg">
-  <img alt="pipeline-dojo repository card" src="profile/pin-pipeline-dojo-light.svg" width="49%">
-</picture></a>
+<p>
+  <a href="https://github.com/sagararora492/pipeline-dojo"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="profile/pin-pipeline-dojo-dark.svg">
+    <img alt="pipeline-dojo repository card" src="profile/pin-pipeline-dojo-light.svg" width="49%">
+  </picture></a>
+</p>
 
 An interactive, in-browser guide to data engineering (in progress): short lessons,
 then hands-on SQL, Python, data modelling and DSA exercises that are checked automatically.
