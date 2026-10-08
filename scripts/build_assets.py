@@ -2,6 +2,7 @@
 
 Writes to assets/:
   toolkit-{dark,light}.svg         the Toolkit card (edit TOOLKIT below)
+  platform-{dark,light}.svg        the connected platform diagram (edit PLATFORM below)
   card-<project>-{dark,light}.svg  the project cards (edit PROJECTS below)
 
 Run from anywhere with Python 3.9+ (no dependencies):
@@ -29,11 +30,11 @@ FONT = "-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
 # (label, icon file in scripts/icons without .svg)
 TOOLKIT = [
     ("WAREHOUSE & TRANSFORM", [("Snowflake", "snowflake"), ("BigQuery", "bigquery"), ("dbt", "dbt"),
-                               ("Spark", "spark"), ("SQL", "sql"), ("Python", "python")]),
-    ("ORCHESTRATION & INGESTION", [("Airflow", "airflow"), ("Prefect", "prefect"), ("Kafka", "kafka"),
+                               ("Spark", "spark"), ("SQL", "sql"), ("Python", "python"), ("Go", "go")]),
+    ("ORCHESTRATION & INGESTION", [("Airflow", "airflow"), ("Prefect", "prefect"), ("Temporal", "temporal"), ("Kafka", "kafka"),
                                    ("Fivetran", "fivetran")]),
     ("CLOUD & INFRASTRUCTURE", [("AWS", "aws"), ("GCP", "gcp"), ("Azure", "azure"), ("Terraform", "terraform"),
-                                ("Docker", "docker"), ("GitHub Actions", "githubactions")]),
+                                ("Docker", "docker"), ("Kubernetes", "kubernetes"), ("GitHub Actions", "githubactions")]),
     ("AI", [("OpenAI", "openai"), ("Anthropic", "anthropic"), ("Gemini", "gemini"),
             ("Structured outputs", "structured"), ("Agent orchestration", "agents"),
             ("Citation validation", "citations")]),
@@ -62,84 +63,20 @@ PROJECTS = {
         motif="pipe",
         alt="pipeline-dojo: an interactive, in-browser guide to data engineering",
     ),
-    "tributary": dict(
-        title="Tributary",
-        eyebrow="PLANNED · STREAMING",
-        desc=["Change data capture from Postgres into Kafka,",
-              "then real-time processing: windowed aggregates,",
-              "joins and replayable, reliable sinks."],
-        chips=["Debezium", "Kafka", "Postgres", "Python"],
-        lang=("Python", "#3572A5"),
-        motif="merge",
-        alt="Tributary (planned): change data capture and real-time stream processing",
-    ),
-    "strongroom": dict(
-        title="Strongroom",
-        eyebrow="PLANNED · DATA WAREHOUSE",
-        desc=["A Data Vault 2.0 warehouse in dbt: hubs, links",
-              "and satellites with full history, plus a",
-              "business vault and marts for analytics."],
-        chips=["dbt", "Data Vault 2.0", "DuckDB", "Snowflake"],
-        lang=("SQL", "#e38c00"),
-        motif="vault",
-        alt="Strongroom (planned): a Data Vault 2.0 warehouse built with dbt",
-    ),
-    "assay": dict(
-        title="Assay",
-        eyebrow="PLANNED · DATA QUALITY",
-        desc=["Declarative data quality checks that catch bad",
-              "data before it lands, with readable reports",
-              "and row-level quarantine."],
-        chips=["YAML checks", "DuckDB", "Airflow"],
-        lang=("Python", "#3572A5"),
-        motif="filter",
-        alt="Assay (planned): a declarative data quality framework",
-    ),
-    "trellis": dict(
-        title="Trellis",
-        eyebrow="PLANNED · ORCHESTRATION",
-        desc=["An ETL engine where pipelines are dependency",
-              "graphs: parallel runs, retries, resumable",
-              "state and partition backfills."],
-        chips=["DAG engine", "Backfills", "SQLite"],
-        lang=("Python", "#3572A5"),
-        motif="dag",
-        alt="Trellis (planned): a graph-based ETL engine",
-    ),
-    "pantry": dict(
-        title="Pantry",
-        eyebrow="PLANNED · MLOPS",
-        desc=["A feature store: define a feature once, serve",
-              "it offline for point-in-time training sets",
-              "and online for low-latency inference."],
-        chips=["Point-in-time joins", "Redis", "FastAPI"],
-        lang=("Python", "#3572A5"),
-        motif="shelves",
-        alt="Pantry (planned): a feature store for offline training and online serving",
-    ),
-    "slipway": dict(
-        title="Slipway",
-        eyebrow="PLANNED · MLOPS",
-        desc=["Gated CI/CD for ML models: tracked training,",
-              "a model registry, canary deploys, and drift",
-              "monitoring once models are live."],
-        chips=["MLflow", "GitHub Actions", "Drift (PSI/KS)"],
-        lang=("Python", "#3572A5"),
-        motif="cycle",
-        alt="Slipway (planned): MLOps CI/CD with drift monitoring",
-    ),
-    "switchboard": dict(
-        title="Switchboard",
-        eyebrow="PLANNED · BACKEND",
-        desc=["Microservices behind one API gateway, with",
-              "auth, rate limiting, contract tests and",
-              "end-to-end tracing."],
-        chips=["FastAPI", "Redis", "OpenTelemetry"],
-        lang=("Python", "#3572A5"),
-        motif="fanout",
-        alt="Switchboard (planned): a microservices and API gateway platform",
-    ),
 }
+
+
+# The connected platform, in build order: (eyebrow, name, two description lines, status)
+PLATFORM = [
+    ("01 · DATA PLATFORM", "Tributary", ["CDC → Kafka → Flink →", "Iceberg, Trino and dbt"], "in progress"),
+    ("02 · FEATURE STORE", "Pantry", ["Offline from Iceberg,", "online via Go + Redis"], "planned"),
+    ("03 · MLOPS", "Slipway", ["Train, register, deploy;", "monitor drift live"], "planned"),
+    ("04 · API GATEWAY", "Switchboard", ["Routing, rate limits", "and observability"], "planned"),
+]
+# What flows along each arrow between neighbours, then the two longer links
+FLOWS = ["Iceberg", "features", "models"]
+TOP_LINK = (0, 2, "live CDC stream → drift monitoring")  # Tributary → Slipway, drawn above
+BOTTOM_LINK = (1, 3, "online features")                  # Pantry → Switchboard, drawn below
 
 
 def text_width(s, size):
@@ -224,15 +161,6 @@ def motif(kind, t):
     <g stroke="{line}" stroke-width="3" stroke-linecap="round"><path d="M14 20H50"/><path d="M14 32H50"/><path d="M14 44H38"/></g>
     {dot(56, 70, 16)}<path d="M48 70l6 6 10-11" fill="none" stroke="{bg}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>''',
         "pipe": path("M4 24H40V56H76") + box(-20, 12, 36, 24) + box(58, 44, 36, 24) + dot(40, 56),
-        "merge": path("M0 10C40 10 40 44 70 44") + path("M0 78C40 78 40 44 70 44") + path("M70 44H96") + dot(70, 44) + box(-12, 0, 24, 20) + box(-12, 68, 24, 20),
-        "vault": path("M44 40L6 8M44 40L84 8M44 40L6 76M44 40L84 76") + box(-10, -2) + box(68, -2) + box(-10, 66) + box(68, 66) + dot(44, 40, 11),
-        "filter": path("M4 8H84L54 44V74L34 84V44Z") + dot(74, 72, 14) + f'<path d="M67 72l5 5 9-10" fill="none" stroke="{bg}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
-        "dag": path("M12 44L48 12M12 44L48 76M48 12L84 44M48 76L84 44") + dot(12, 44) + box(32, 2) + box(32, 66) + dot(84, 44, 8),
-        "shelves": "".join(box(x, y, 36, 22) for x, y in [(0, 6), (44, 6), (0, 36), (0, 66), (44, 66)]) + f'<rect x="44" y="36" width="36" height="22" rx="5" fill="{accent}"/>',
-        "cycle": path("M44 8A36 36 0 0 1 80 44") + path("M44 80A36 36 0 0 1 8 44")
-                 + f'<path d="M73 37l7 9 7-9M1 51l7-9 7 9" fill="none" stroke="{accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'
-                 + box(28, 33, 32, 22) + dot(44, 8, 4) + dot(44, 80, 4),
-        "fanout": path("M16 44H40M40 44L68 8M40 44H68M40 44L68 80") + box(-20, 33, 36, 22) + dot(40, 44) + box(64, -3) + box(64, 33) + box(64, 69),
     }
     return f'<g transform="translate(520 40)">\n    {shapes[kind]}\n  </g>'
 
@@ -260,12 +188,67 @@ def project_card(p, t):
     return frame(w, h, t, p["alt"], body)
 
 
+def platform(t):
+    w, pad, node_w, node_h, top = 1280, 48, 236, 200, 110
+    gap = (w - 2 * pad - len(PLATFORM) * node_w) / (len(PLATFORM) - 1)
+    h = top + node_h + 120
+    xs = [pad + i * (node_w + gap) for i in range(len(PLATFORM))]
+    centre = lambda i: xs[i] + node_w / 2
+    arrow = lambda x, y, down: (f'<path d="M{x - 7} {y - 9 if down else y + 9}L{x} {y}L{x + 7} {y - 9 if down else y + 9}" '
+                                f'fill="none" stroke="{t["accent"]}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>')
+    parts = []
+
+    def label_pill(x, y, text):
+        lw = text_width(text, 15) + 28
+        return (f'<rect x="{x - lw / 2}" y="{y - 15}" width="{lw}" height="30" rx="15" fill="{t["bg"]}" stroke="{t["border"]}"/>'
+                f'<text x="{x}" y="{y + 5}" text-anchor="middle" fill="{t["muted"]}" font-size="15">{escape(text)}</text>')
+
+    # long links first so nodes and pills sit on top of them
+    for (a, b, text), above in ((TOP_LINK, True), (BOTTOM_LINK, False)):
+        y0 = top - 6 if above else top + node_h + 6
+        bend = -70 if above else 70
+        parts.append(f'<path d="M{centre(a)} {y0}C{centre(a)} {y0 + bend} {centre(b)} {y0 + bend} {centre(b)} {y0}" '
+                     f'fill="none" stroke="{t["line"]}" stroke-width="2" stroke-dasharray="6 6"/>')
+        parts.append(arrow(centre(b), y0, above))
+        parts.append(label_pill((centre(a) + centre(b)) / 2, y0 + bend * .75, text))
+
+    for i, (eyebrow, name, desc, status) in enumerate(PLATFORM):
+        x, active = xs[i], status == "in progress"
+        for line in desc:
+            if text_width(line, 17) > node_w - 48:
+                raise SystemExit(f"Platform text {line!r} is too wide for its box; shorten it.")
+        parts.append(f'<rect x="{x}" y="{top}" width="{node_w}" height="{node_h}" rx="12" fill="{t["node"]}" '
+                     f'stroke="{t["accent"] if active else t["border"]}" stroke-width="2"/>'
+                     f'<text x="{x + 24}" y="{top + 38}" fill="{t["accent"]}" font-size="13" font-weight="600" letter-spacing="1.8">{escape(eyebrow)}</text>'
+                     f'<text x="{x + 23}" y="{top + 80}" fill="{t["text"]}" font-size="32" font-weight="600" letter-spacing="-.8">{escape(name)}</text>'
+                     + "".join(f'<text x="{x + 24}" y="{top + 112 + j * 23}" fill="{t["muted"]}" font-size="17">{escape(l)}</text>'
+                               for j, l in enumerate(desc)))
+        label = status.upper()
+        pw = text_width(label, 12) + 22 + label.count(" ") * 4 + len(label) * 1.4
+        parts.append(f'<rect x="{x + 24}" y="{top + 152}" width="{pw}" height="26" rx="13" '
+                     + (f'fill="{t["accent"]}"/>' if active else f'fill="none" stroke="{t["border"]}" stroke-width="1.5"/>')
+                     + f'<text x="{x + 24 + pw / 2}" y="{top + 169}" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="1.4" '
+                     f'fill="{t["bg"] if active else t["muted"]}">{label}</text>')
+        if i < len(PLATFORM) - 1:
+            x1, x2, y = x + node_w + 8, xs[i + 1] - 8, top + node_h / 2
+            parts.append(f'<path d="M{x1} {y}H{x2}" stroke="{t["line"]}" stroke-width="2"/>'
+                         f'<path d="M{x2 - 9} {y - 7}L{x2} {y}L{x2 - 9} {y + 7}" fill="none" stroke="{t["accent"]}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'
+                         f'<text x="{(x1 + x2) / 2}" y="{y - 12}" text-anchor="middle" fill="{t["muted"]}" font-size="14">{escape(FLOWS[i])}</text>')
+
+    alt = ("The platform, in build order: " + "; ".join(
+        f"{n} ({', '.join(d).replace(',,', ',')}, {st})" for _, n, d, st in PLATFORM)
+        + f". Arrows: Tributary to Pantry ({FLOWS[0]}), Pantry to Slipway ({FLOWS[1]}), Slipway to Switchboard ({FLOWS[2]});"
+        + f" Tributary also feeds Slipway ({TOP_LINK[2]}) and Pantry serves Switchboard ({BOTTOM_LINK[2]}).")
+    return frame(w, h, t, alt, "\n".join(parts))
+
+
 def main():
     for theme, t in THEMES.items():
         (ASSETS / f"toolkit-{theme}.svg").write_text(toolkit(t))
+        (ASSETS / f"platform-{theme}.svg").write_text(platform(t))
         for slug, p in PROJECTS.items():
             (ASSETS / f"card-{slug}-{theme}.svg").write_text(project_card(p, t))
-    print(f"Wrote toolkit and {len(PROJECTS)} project cards (dark + light) to {ASSETS.relative_to(ROOT)}/")
+    print(f"Wrote toolkit, platform diagram and {len(PROJECTS)} project cards (dark + light) to {ASSETS.relative_to(ROOT)}/")
 
 
 if __name__ == "__main__":

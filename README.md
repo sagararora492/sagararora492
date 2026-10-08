@@ -9,7 +9,7 @@
   <a href="https://www.linkedin.com/in/sagararora492/">LinkedIn</a>
 </p>
 
-I'm a Senior Data Engineer II at **Nesto**, building modern data pipelines.
+I'm a Senior Data Engineer II at **Nesto** with 9+ years of experience building modern data pipelines.
 I care about data systems that are reliable, observable, and easy to reason about.
 
 Outside work, I build AI systems with the same engineering discipline: bounded,
@@ -19,12 +19,30 @@ tested, and transparent about what the evidence actually supports.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/toolkit-dark.svg">
-  <img alt="Toolkit. Warehouse &amp; transform: Snowflake, BigQuery, dbt, Spark, SQL, Python. Orchestration &amp; ingestion: Airflow, Prefect, Kafka, Fivetran. Cloud &amp; infrastructure: AWS, GCP, Azure, Terraform, Docker, GitHub Actions. AI: OpenAI, Anthropic, Gemini, Structured outputs, Agent orchestration, Citation validation." src="assets/toolkit-light.svg" width="100%">
+  <img alt="Toolkit. Warehouse &amp; transform: Snowflake, BigQuery, dbt, Spark, SQL, Python, Go. Orchestration &amp; ingestion: Airflow, Prefect, Temporal, Kafka, Fivetran. Cloud &amp; infrastructure: AWS, GCP, Azure, Terraform, Docker, Kubernetes, GitHub Actions. AI: OpenAI, Anthropic, Gemini, Structured outputs, Agent orchestration, Citation validation." src="assets/toolkit-light.svg" width="100%">
 </picture>
 
 ---
 
-### Projects
+### The platform
+
+One end-to-end ML platform, built in order: each project consumes what the previous one produces.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/platform-dark.svg">
+  <img alt="The platform, in build order: Tributary (CDC → Kafka → Flink →, Iceberg, Trino and dbt, in progress); Pantry (Offline from Iceberg, online via Go + Redis, planned); Slipway (Train, register, deploy;, monitor drift live, planned); Switchboard (Routing, rate limits, and observability, planned). Arrows: Tributary to Pantry (Iceberg), Pantry to Slipway (features), Slipway to Switchboard (models); Tributary also feeds Slipway (live CDC stream → drift monitoring) and Pantry serves Switchboard (online features)." src="assets/platform-light.svg" width="100%">
+</picture>
+
+| | Project | What it does | Builds on | Status |
+| --- | --- | --- | --- | --- |
+| 1 | [**Tributary**](https://github.com/sagararora492/tributary) | Streams Postgres changes through Debezium, Kafka and Flink into Iceberg; Trino queries, dbt models, data contracts and quality checks. | The foundation | **In progress** |
+| 2 | [**Pantry**](https://github.com/sagararora492/pantry) | Feature store: offline features from Iceberg, online serving through a Go API over Redis. | Tributary's Iceberg tables | Planned |
+| 3 | [**Slipway**](https://github.com/sagararora492/slipway) | Trains on Pantry's features, with model CI/CD, a registry, deployment and drift monitoring. | Pantry's features, Tributary's live stream | Planned |
+| 4 | [**Switchboard**](https://github.com/sagararora492/switchboard) | API gateway: routing, rate limiting and observability. | Pantry and Slipway's serving APIs | Planned |
+
+Runs locally on Docker Compose or kind, with Terraform for the path to the cloud. Each component gets a design doc and measured latency, throughput and cost.
+
+### Also building
 
 <p>
   <a href="https://sagararora492.github.io/projects/fieldnotes/"><picture>
@@ -38,50 +56,6 @@ tested, and transparent about what the evidence actually supports.
 </p>
 
 **Fieldnotes** · [Walkthrough & sample output](https://sagararora492.github.io/projects/fieldnotes/) · [Source](https://github.com/sagararora492/ai-research-agent)
-
-### Planned
-
-Each of these has a repository with its plan and milestones; cards move up to Projects as they ship.
-
-<p>
-  <a href="https://github.com/sagararora492/tributary"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/card-tributary-dark.svg">
-    <img alt="Tributary (planned): change data capture and real-time stream processing" src="assets/card-tributary-light.svg" width="49%">
-  </picture></a>
-  <a href="https://github.com/sagararora492/strongroom"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/card-strongroom-dark.svg">
-    <img alt="Strongroom (planned): a Data Vault 2.0 warehouse built with dbt" src="assets/card-strongroom-light.svg" width="49%">
-  </picture></a>
-</p>
-
-<p>
-  <a href="https://github.com/sagararora492/assay"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/card-assay-dark.svg">
-    <img alt="Assay (planned): a declarative data quality framework" src="assets/card-assay-light.svg" width="49%">
-  </picture></a>
-  <a href="https://github.com/sagararora492/trellis"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/card-trellis-dark.svg">
-    <img alt="Trellis (planned): a graph-based ETL engine" src="assets/card-trellis-light.svg" width="49%">
-  </picture></a>
-</p>
-
-<p>
-  <a href="https://github.com/sagararora492/pantry"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/card-pantry-dark.svg">
-    <img alt="Pantry (planned): a feature store for offline training and online serving" src="assets/card-pantry-light.svg" width="49%">
-  </picture></a>
-  <a href="https://github.com/sagararora492/slipway"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/card-slipway-dark.svg">
-    <img alt="Slipway (planned): MLOps CI/CD with drift monitoring" src="assets/card-slipway-light.svg" width="49%">
-  </picture></a>
-</p>
-
-<p>
-  <a href="https://github.com/sagararora492/switchboard"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/card-switchboard-dark.svg">
-    <img alt="Switchboard (planned): a microservices and API gateway platform" src="assets/card-switchboard-light.svg" width="49%">
-  </picture></a>
-</p>
 
 ---
 
@@ -108,7 +82,7 @@ Each of these has a repository with its plan and milestones; cards move up to Pr
 
 ### Currently
 
-- Building more data engineering projects, each in its own repository and showcased on my [portfolio](https://sagararora492.github.io/).
+- Building [Tributary](https://github.com/sagararora492/tributary), the data platform that the rest of the system builds on.
 - Exploring evaluation and failure handling for LLM-backed data workflows.
 
 <picture>

@@ -5,7 +5,7 @@ them to the theme's accent colour.
 
 | Icons | Source | Licence |
 | --- | --- | --- |
-| snowflake, bigquery, spark, python, prefect, kafka, gcp, terraform, docker, githubactions, anthropic, gemini | [Simple Icons](https://simpleicons.org/) | CC0 1.0 |
+| snowflake, bigquery, spark, python, go, prefect, temporal, kafka, gcp, terraform, docker, kubernetes, githubactions, anthropic, gemini | [Simple Icons](https://simpleicons.org/) | CC0 1.0 |
 | dbt, openai | [gilbarbara/logos](https://github.com/gilbarbara/logos) | CC0 1.0 |
 | aws, azure, airflow | [Devicon](https://devicon.dev/) (plain variants) | MIT |
 | sql, fivetran, structured, agents, citations | Drawn for this repo (generic symbols; no Fivetran logo is published in an open icon set) | — |
